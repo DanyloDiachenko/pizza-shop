@@ -1,0 +1,23 @@
+.searchWrapper {
+    max-width: 400px;
+    width: 100%;
+    margin-left: 70px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-light);
+    display: flex;
+    padding: 15px;
+    gap: 10px;
+
+    input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 14px;
+        color: var(--black);
+        cursor: pointer;
+
+        &::placeholder {
+            color: var(--gray-light);
+        }
+    }
+}

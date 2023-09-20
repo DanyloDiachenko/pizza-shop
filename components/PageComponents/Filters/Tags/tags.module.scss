@@ -1,0 +1,24 @@
+.tags {
+    display: flex;
+    gap: 15px;
+
+    button {
+        padding: 8px 20px;
+        border-radius: 33px;
+        background: var(--gray-lightest);
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: var(--transition);
+        cursor: pointer;
+
+        &:hover {
+            background: var(--gray-light);
+        }
+
+        &.active {
+            color: var(--white);
+            background: var(--black);
+        }
+    }
+}
