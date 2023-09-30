@@ -1,0 +1,60 @@
+.pizza {
+    img {
+        max-width: 260px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .options {
+        padding: 7px;
+        background: var(--gray-lightest);
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 25px;
+
+        .top,
+        .diametr {
+            display: grid;
+            column-gap: 5px;
+
+            div {
+                padding-top: 6px;
+                padding-bottom: 6px;
+                border-radius: 4px;
+                transition: var(--transition);
+                cursor: pointer;
+
+                &:hover {
+                    background: #ffffff7b;
+                }
+            }
+        }
+        .top,
+        .diametr {
+            .active {
+                background: var(--white);
+
+                &:hover {
+                    background: var(--white);
+                }
+            }
+        }
+
+        .top {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .diametr {
+            margin-top: 6px;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .price {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}

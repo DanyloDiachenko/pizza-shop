@@ -2,12 +2,12 @@
     --background: #ffdf8c;
     --white: #ffffff;
     --black: #363636;
-    --orange: #FE5F1E;
+    --orange: #fe5f1e;
     --orange-alpha: #fe5d1e84;
     --orange-dark: #de490e;
 
-    --gray-text: #A5A5A5;
-    --gray-light: #DEDEDE;
+    --gray-text: #a5a5a5;
+    --gray-light: #dedede;
     --gray-lightest: #ededed;
 
     --transition: 0.3s;
@@ -44,12 +44,15 @@ h1 {
     line-height: normal;
 }
 
-p {
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: var(--gray-text);
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .container {
