@@ -9,7 +9,7 @@ export const getAllPizzas = async (
 ) => {
     return fetch(
         process.env.NEXT_PUBLIC_BACKEND_URL +
-            `https://pizza-shop-api-ivory.vercel.app/api/pizzas?tag=${tag.toLocaleLowerCase()}&pageNumber=${page}`,
+            `/pizzas?tag=${tag.toLocaleLowerCase()}&pageNumber=${page}`,
         {
             method: "GET",
             headers: {
