@@ -1,0 +1,1 @@
+export type PageType = 1 | 2 | 3;

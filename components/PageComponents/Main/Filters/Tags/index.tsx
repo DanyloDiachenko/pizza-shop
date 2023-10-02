@@ -3,9 +3,10 @@
 import { useState } from "react";
 
 import styles from "./tags.module.scss";
+import { TagType } from "@/types/tag.type";
 
 export const Tags = (): JSX.Element => {
-    const tags: string[] = [
+    const tags: TagType[] = [
         "All",
         "Meat",
         "Vegetarian",
