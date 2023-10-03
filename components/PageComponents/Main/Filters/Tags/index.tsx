@@ -1,22 +1,7 @@
-"use client";
-
-import { useState } from "react";
-
 import styles from "./tags.module.scss";
-import { TagType } from "@/types/tag.type";
+import { TagsProps } from "./tags.props";
 
-export const Tags = (): JSX.Element => {
-    const tags: TagType[] = [
-        "All",
-        "Meat",
-        "Vegetarian",
-        "Grill",
-        "Spicy",
-        "Calzone",
-    ];
-
-    const [activeTag, setActiveTag] = useState<string>(tags[0]);
-
+export const Tags = ({ activeTag, setActiveTag, tags }: TagsProps): JSX.Element => {
     return (
         <div className={styles.tags}>
             {tags.map((tag, index) => (

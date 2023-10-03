@@ -52,9 +52,46 @@
         }
     }
 
-    .price {
+    .priceButton {
         margin-top: 15px;
-        font-size: 18px;
-        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .price {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .button {
+            width: 100%;
+            max-width: 160px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border-radius: 30px;
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            font-size: 16px;
+            transition: var(--transition);
+
+            path {
+                transition: var(--transition);
+            }
+
+            &:hover {
+                background: var(--orange);
+                color: var(--white);
+                cursor: pointer;
+
+                path {
+                    fill: var(--white);
+                }
+            }
+        }
     }
 }

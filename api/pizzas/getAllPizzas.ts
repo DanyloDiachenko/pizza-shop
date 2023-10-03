@@ -1,15 +1,15 @@
 import { PageType } from "@/types/page.type";
+import { SortByType } from "@/types/sortBy.type";
 import { TagType } from "@/types/tag.type";
 
 export const getAllPizzas = async (
     tag: TagType,
     page: PageType,
-    //@ts-ignore
-    sortBy?: string,
+    sortBy: SortByType,
 ) => {
     return fetch(
         process.env.NEXT_PUBLIC_BACKEND_URL +
-            `/pizzas?tag=${tag.toLocaleLowerCase()}&pageNumber=${page}`,
+            `/pizzas?tag=${tag.toLocaleLowerCase()}&pageNumber=${page}&sortBy=${sortBy}`,
         {
             method: "GET",
             headers: {

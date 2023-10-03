@@ -1,7 +1,7 @@
 export interface IPizza {
     _id: string;
     rating: number;
-    img: string;
+    image: string;
     title: string;
     size26: {
         thin: number;

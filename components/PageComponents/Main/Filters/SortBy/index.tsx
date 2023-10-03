@@ -1,10 +1,15 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 
 import styles from "./sort.module.scss";
+import { SortByProps } from "./sortBy.props";
 
-export const SortBy = (): JSX.Element => {
+export const SortBy = ({
+    sortVariants,
+    activeSortVariant,
+    setActiveSortVariant,
+}: SortByProps): JSX.Element => {
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
 
     return (
@@ -17,7 +22,7 @@ export const SortBy = (): JSX.Element => {
                 onClick={() => setIsSelectOpen(!isSelectOpen)}
                 onKeyDown={() => setIsSelectOpen(!isSelectOpen)}
             >
-                rating
+                {activeSortVariant.title}
             </span>
             <div
                 className={`${styles.select} ${
@@ -25,11 +30,19 @@ export const SortBy = (): JSX.Element => {
                 }`}
             >
                 <ul>
-                    <li className={styles.active}>rating</li>
-                    <li>price (desc)</li>
-                    <li>price (asc)</li>
-                    <li>alphabet (desc)</li>
-                    <li>alphabet (asc)</li>
+                    {sortVariants.map((sortVariant, index) => (
+                        <li
+                            key={index}
+                            className={
+                                activeSortVariant.value === sortVariant.value
+                                    ? styles.active
+                                    : ""
+                            }
+                            onClick={() => setActiveSortVariant(sortVariant)}
+                        >
+                            {sortVariant.title}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>
