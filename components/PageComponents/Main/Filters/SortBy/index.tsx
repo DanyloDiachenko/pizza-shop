@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import styles from "./sort.module.scss";
 import { SortByProps } from "./sortBy.props";
+import onClickOutside from "@/helpers/onClickOutside";
 
 export const SortBy = ({
     sortVariants,
@@ -12,8 +13,13 @@ export const SortBy = ({
 }: SortByProps): JSX.Element => {
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
 
+    const selectWrapperRef = useRef<HTMLDivElement>(null);
+    onClickOutside(selectWrapperRef, () => {
+        setIsSelectOpen(false);
+    });
+
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} ref={selectWrapperRef}>
             <img src="/sort.svg" alt="sort icon" />
             <span className={styles.title}>Sort by:</span>
             <span
@@ -24,11 +30,7 @@ export const SortBy = ({
             >
                 {activeSortVariant.title}
             </span>
-            <div
-                className={`${styles.select} ${
-                    isSelectOpen ? styles.active : ""
-                }`}
-            >
+            {isSelectOpen && (
                 <ul>
                     {sortVariants.map((sortVariant, index) => (
                         <li
@@ -44,7 +46,7 @@ export const SortBy = ({
                         </li>
                     ))}
                 </ul>
-            </div>
+            )}
         </div>
     );
 };

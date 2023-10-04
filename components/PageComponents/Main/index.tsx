@@ -12,38 +12,8 @@ import { IPizza } from "./Pizza/pizza.interface";
 import { TagType } from "@/types/tag.type";
 import { SortByType } from "@/types/sortBy.type";
 import { ISortVariant } from "./Filters/SortBy/sortVariant.interface";
-
-const tags: TagType[] = [
-    "All",
-    "Meat",
-    "Vegetarian",
-    "Grill",
-    "Spicy",
-    "Calzone",
-];
-
-const sortVariants: ISortVariant[] = [
-    {
-        title: "rating",
-        value: "rating",
-    },
-    {
-        title: "alphabet (asc)",
-        value: "alphabetAsc",
-    },
-    {
-        title: "alphabet (desc)",
-        value: "alphabetDesc",
-    },
-    {
-        title: "price (asc)",
-        value: "priceAsc",
-    },
-    {
-        title: "price (desc)",
-        value: "priceDesc",
-    },
-];
+import { tags } from "@/data/tags";
+import { sortVariants } from "@/data/sortVariants";
 
 export const Main = (): JSX.Element => {
     const searchParams = useSearchParams();
