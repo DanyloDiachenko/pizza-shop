@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 
 import styles from "./sort.module.scss";
 import { SortByProps } from "./sortBy.props";
-import onClickOutside from "@/helpers/onClickOutside";
+import { onClickOutside } from "@/helpers/onClickOutside";
 
 export const SortBy = ({
     sortVariants,

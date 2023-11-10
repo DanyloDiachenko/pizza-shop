@@ -1,0 +1,182 @@
+.pizzas {
+    height: 550px;
+    overflow-y: auto;
+
+    .pizza {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid var(--gray-light);
+
+        .pizzaImg {
+            width: 10%;
+            margin-right: 15px;
+        }
+
+        .titleDescription {
+            width: 40%;
+
+            h3 {
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 20px;
+                margin-top: 5px;
+                color: var(--gray-text);
+            }
+        }
+
+        .plusCountMinus {
+            width: 13%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            b {
+                font-size: 22px;
+            }
+
+            .btn {
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid var(--orange);
+                background: none;
+                border-radius: 50%;
+                transition: var(--transition);
+                cursor: pointer;
+
+                path {
+                    transition: var(--transition);
+                }
+
+                &:hover {
+                    background: var(--orange);
+
+                    path {
+                        fill: var(--white);
+                    }
+                }
+
+                &.inactive {
+                    cursor: auto;
+                    border: 2px solid var(--gray-text);
+                    opacity: 0.5;
+
+                    path {
+                        fill: var(--gray-text);
+                    }
+
+                    &:hover {
+                        background: var(--white);
+
+                        path {
+                            fill: var(--gray-text);
+                        }
+                    }
+                }
+            }
+        }
+
+        .price {
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1.3px;
+        }
+
+        .remove {
+            width: 4%;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: 2px solid var(--gray-text);
+                border-radius: 50%;
+                opacity: 0.5;
+                transition: var(--transition);
+
+                path {
+                    transition: var(--transition);
+                }
+
+                &:hover {
+                    opacity: 1;
+                    cursor: pointer;
+                    background: var(--black);
+                    border-color: var(--black);
+
+                    path {
+                        fill: var(--white);
+                    }
+                }
+
+                svg {
+                    transform: rotate(45deg);
+
+                    path {
+                        fill: var(--gray-text);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.orderInfo {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+
+    .pizzasCount,
+    .total {
+        b {
+            font-weight: 600;
+        }
+    }
+
+    .total {
+        b {
+            color: var(--orange);
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    .pay {
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        padding: 15px 50px;
+        border-radius: 30px;
+        transition: var(--transition);
+        cursor: pointer;
+        background: var(--orange);
+        color: var(--white);
+        font-size: 16px;
+        letter-spacing: 0.5px;
+
+        &:hover {
+            background: var(--orange-dark);
+        }
+    }
+}

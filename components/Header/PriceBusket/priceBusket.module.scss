@@ -7,6 +7,7 @@
     align-items: center;
     margin-left: auto;
     transition: var(--transition);
+    border: none;
 
     &:hover {
         background: var(--orange-dark);

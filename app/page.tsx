@@ -1,12 +1,13 @@
-import styles from "./page.module.scss";
+import { PopupOrder } from "@/components/Popups/Order";
 import { Main } from "@/components/PageComponents/Main";
 
 const Home = (): JSX.Element => {
     return (
-        <main className={styles.main}>
+        <main>
+            <PopupOrder />
             <Main />
         </main>
-    ); 
+    );
 };
 
 export default Home;

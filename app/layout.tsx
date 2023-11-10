@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 
 import "./globals.scss";
 import { Header } from "@/components/Header";
+import {ReduxProvider} from "@/store/ReduxProvider";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -20,13 +21,15 @@ interface RootLayoutProps {
     children: ReactNode;
 }
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Header />
-                <hr className="headerHr" />
-                {children}
+                <ReduxProvider>
+                    <Header />
+                    <hr className="headerHr" />
+                    {children}
+                </ReduxProvider>
             </body>
         </html>
     );

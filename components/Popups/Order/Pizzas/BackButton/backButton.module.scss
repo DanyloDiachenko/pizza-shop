@@ -1,0 +1,36 @@
+.back {
+    background: none;
+    border: 1px solid var(--gray-text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    transition: var(--transition);
+    cursor: pointer;
+
+    path {
+        fill: var(--gray-text);
+        transition: var(--transition);
+    }
+
+    span {
+        transition: var(--transition);
+        font-size: 16px;
+        color: var(--gray-text);
+        letter-spacing: 0.5px;
+    }
+
+    &:hover {
+        border-color: var(--black);
+        background: var(--black);
+
+        path {
+            fill: var(--white);
+        }
+
+        span {
+            color: var(--white);
+        }
+    }
+}

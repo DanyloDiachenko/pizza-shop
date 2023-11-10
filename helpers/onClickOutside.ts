@@ -2,7 +2,7 @@ import { useEffect, RefObject } from "react";
 
 type Event = MouseEvent | TouchEvent;
 
-const onClickOutside = <T extends HTMLElement = HTMLElement>(
+export const onClickOutside = <T extends HTMLElement = HTMLElement>(
     ref: RefObject<T>,
     callback: (event: Event) => void,
 ) => {
@@ -18,5 +18,3 @@ const onClickOutside = <T extends HTMLElement = HTMLElement>(
         };
     }, [ref, callback]);
 };
-
-export default onClickOutside;

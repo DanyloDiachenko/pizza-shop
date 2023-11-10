@@ -1,0 +1,47 @@
+.h2 {
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.p {
+    margin-top: 20px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--gray-text);
+    text-align: center;
+    line-height: 32px;
+}
+
+.imgWrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        max-width: 300px;
+    }
+}
+
+.btnWrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    button {
+        background: var(--black-main);
+        color: var(--white);
+        border: none;
+        padding: 15px 50px;
+        font-size: 20px;
+        transition: var(--transition);
+        border-radius: 33px;
+        cursor: pointer;
+        letter-spacing: 1px;
+
+        &:hover {
+            background: var(--black);
+        }
+    }
+}

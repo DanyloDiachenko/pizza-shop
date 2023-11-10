@@ -1,0 +1,73 @@
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: var(--transition);
+    background: none;
+    z-index: -1;
+
+    &.bgActive {
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 1;
+    }
+}
+
+.popup {
+    position: absolute;
+    width: 60vw;
+    min-height: 80vh;
+    background: var(--white);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 30px 100px;
+    border-radius: 12px;
+    transition: var(--transition);
+    opacity: 0;
+    z-index: -1;
+
+    &.active {
+        z-index: 2;
+        top: 100px;
+        opacity: 1;
+    }
+
+    .popupOrders {
+        .top {
+            display: flex;
+            justify-content: space-between;
+
+            .leftCol,
+            .rightCol {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .rightCol {
+                color: var(--gray-text);
+                font-size: 18px;
+                cursor: pointer;
+                letter-spacing: 0.3px;
+
+                span,
+                path {
+                    transition: var(--transition);
+                }
+
+                &:hover {
+                    span {
+                        color: var(--black);
+                    }
+                    path {
+                        stroke: var(--black);
+                    }
+                }
+            }
+        }
+    }
+}
