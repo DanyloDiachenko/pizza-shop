@@ -29,7 +29,7 @@ export const PopupOrder = (): JSX.Element => {
         if (pizzas) {
             setPizzas(JSON.parse(pizzas));
         }
-    }, []); 
+    }, []);
 
     console.log(pizzas);
 

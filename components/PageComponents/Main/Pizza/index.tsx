@@ -4,6 +4,9 @@ import styles from "./pizza.module.scss";
 import { PizzaProps } from "./pizza.props";
 import { PizzaRadiusType } from "@/types/pizzaRadius.type";
 import { PizzaThicknessType } from "@/types/pizzaThickness.type";
+import { useDispatch, useSelector } from "react-redux";
+import { storageSlice } from "@/store/storage/storate.slice";
+import { RootState } from "@/store";
 
 export const Pizza = ({
     image,
@@ -15,6 +18,15 @@ export const Pizza = ({
 }: PizzaProps): JSX.Element => {
     const sizes: PizzaRadiusType[] = [26, 30, 40];
     const thikness: PizzaThicknessType[] = ["thin", "standard"];
+
+    const dispatch = useDispatch();
+
+    const toggleLocalstorage = useSelector(
+        (state: RootState) => state.localStorage.toggle,
+    );
+    const toggleLocalstorageHandler = () => {
+        dispatch(storageSlice.actions.reloadLocalStorage(!toggleLocalstorage));
+    };
 
     const [activeOptions, setActiveOptions] = useState({
         thickness: "thin",
@@ -85,6 +97,8 @@ export const Pizza = ({
     };
 
     const addProductToBasket = (pizzaId: string): void => {
+        toggleLocalstorageHandler();
+
         const existingItems = JSON.parse(
             localStorage.getItem("basket") || "[]",
         );
