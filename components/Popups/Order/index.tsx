@@ -8,16 +8,20 @@ import styles from "./popupOrder.module.scss";
 import { RootState } from "@/store";
 import { popupOrdersSlice } from "@/store/popupOrders/orders.slice";
 import { useEffect, useState } from "react";
-import { IPizza } from "@/components/PageComponents/Main/Pizza/pizza.interface";
+import { IPizzaStorage } from "@/components/PageComponents/Main/Pizza/pizza.interface";
 
 export const PopupOrder = (): JSX.Element => {
-    const [pizzas, setPizzas] = useState<IPizza[]>([]);
+    const [pizzas, setPizzas] = useState<IPizzaStorage[]>([]);
 
     const isOpen = useSelector(
         (state: RootState) => state.popupOrders.isOpened,
     );
 
     const dispatch = useDispatch();
+
+    const toggleLocalStorage = useSelector(
+        (state: RootState) => state.localStorage.toggle,
+    );
 
     const setIsPopupOrdersClosed = () => {
         dispatch(popupOrdersSlice.actions.setPopupClosed());
@@ -29,7 +33,7 @@ export const PopupOrder = (): JSX.Element => {
         if (pizzas) {
             setPizzas(JSON.parse(pizzas));
         }
-    }, []);
+    }, [toggleLocalStorage]);
 
     console.log(pizzas);
 
@@ -86,7 +90,7 @@ export const PopupOrder = (): JSX.Element => {
                             <span>Clear basket</span>
                         </div>
                     </div>
-                    {true ? <Pizzas /> : <NoPizzas />}
+                    {true ? <Pizzas pizzas={pizzas} /> : <NoPizzas />}
                 </div>
             </div>
         </>

@@ -16,3 +16,13 @@ export interface IPizza {
         standard: number;
     };
 }
+
+export interface IPizzaStorage {
+    count: number;
+    image: string;
+    price: number
+    size: number;
+    thickness: string;
+    title: string;
+    _id: string;
+}

@@ -1,5 +1,5 @@
 .bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -32,7 +32,7 @@
 
     &.active {
         z-index: 2;
-        top: 100px;
+        top: 60px;
         opacity: 1;
     }
 

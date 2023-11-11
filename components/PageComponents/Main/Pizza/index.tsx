@@ -7,6 +7,7 @@ import { PizzaThicknessType } from "@/types/pizzaThickness.type";
 import { useDispatch, useSelector } from "react-redux";
 import { storageSlice } from "@/store/storage/storate.slice";
 import { RootState } from "@/store";
+import { IPizzaStorage } from './pizza.interface';
 
 export const Pizza = ({
     image,
@@ -103,7 +104,7 @@ export const Pizza = ({
             localStorage.getItem("basket") || "[]",
         );
 
-        const selectedPizza = {
+        const selectedPizza: IPizzaStorage = {
             _id: pizzaId,
             image,
             title,
