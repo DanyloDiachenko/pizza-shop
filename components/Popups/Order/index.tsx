@@ -90,7 +90,7 @@ export const PopupOrder = (): JSX.Element => {
                             <span>Clear basket</span>
                         </div>
                     </div>
-                    {true ? <Pizzas pizzas={pizzas} /> : <NoPizzas />}
+                    {pizzas.length ? <Pizzas pizzas={pizzas} /> : <NoPizzas />}
                 </div>
             </div>
         </>
