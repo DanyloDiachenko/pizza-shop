@@ -4,9 +4,11 @@
     .logoText {
         display: flex;
         gap: 18px;
+        
 
         p {
             margin-top: 5px;
+            color: var(--gray-text);
         }
     }
 }

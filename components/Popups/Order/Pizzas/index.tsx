@@ -43,7 +43,48 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
         );
 
         localStorage.setItem("basket", JSON.stringify(newPizzas));
+
         toggleLocalstorageHandler();
+    };
+
+    const incrementPizzaCount = (
+        pizzaId: string,
+        pizzaSize: number,
+        pizzaThikness: string,
+        operation: "increment" | "decrement",
+    ) => {
+        toggleLocalstorageHandler();
+
+        const existingItemIndex = pizzas.findIndex(
+            (pizza) =>
+                pizza._id === pizzaId &&
+                pizza.size === pizzaSize &&
+                pizza.thickness === pizzaThikness,
+        );
+
+        if (existingItemIndex !== -1) {
+            if (operation === "increment") {
+                if (pizzas[existingItemIndex].count < 10) {
+                    pizzas[existingItemIndex].count++;
+                }
+            } else {
+                if (pizzas[existingItemIndex].count !== 1) {
+                    pizzas[existingItemIndex].count--;
+                }
+            }
+        }
+
+        localStorage.setItem("basket", JSON.stringify(pizzas));
+    };
+
+    const countTotalPrice = () => {
+        let totalPrice = 0;
+
+        for (let i = 0; i < pizzas.length; i++) {
+            totalPrice += pizzas[i].count * pizzas[i].price;
+        }
+
+        return totalPrice.toFixed(2);
     };
 
     return (
@@ -64,7 +105,18 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                         </div>
                         <div className={styles.plusCountMinus}>
                             <button
-                                className={`${styles.btn} ${styles.inactive}`}
+                                className={`${styles.btn} ${
+                                    pizza.count === 1 ? styles.inactive : ""
+                                }`}
+                                disabled={pizza.count === 1}
+                                onClick={() =>
+                                    incrementPizzaCount(
+                                        pizza._id,
+                                        pizza.size,
+                                        pizza.thickness,
+                                        "decrement",
+                                    )
+                                }
                             >
                                 <svg
                                     width="10"
@@ -80,7 +132,20 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                                 </svg>
                             </button>
                             <b>{pizza.count}</b>
-                            <div className={styles.btn}>
+                            <button
+                                className={`${styles.btn} ${
+                                    pizza.count === 10 ? styles.inactive : ""
+                                }`}
+                                onClick={() =>
+                                    incrementPizzaCount(
+                                        pizza._id,
+                                        pizza.size,
+                                        pizza.thickness,
+                                        "increment",
+                                    )
+                                }
+                                disabled={pizza.count === 10}
+                            >
                                 <svg
                                     width="10"
                                     height="10"
@@ -97,7 +162,7 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                                         fill="#EB5A1E"
                                     ></path>
                                 </svg>
-                            </div>
+                            </button>
                         </div>
                         <div className={styles.price}>
                             {countPricePerPizza(pizza)} €
@@ -127,10 +192,10 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
             </div>
             <div className={styles.orderInfo}>
                 <span className={styles.pizzasCount}>
-                    Total pizzas: <b>4 pcs.</b>
+                    Total pizzas: <b>{pizzas.length} pcs.</b>
                 </span>
                 <span className={styles.total}>
-                    Order price: <b>200 $</b>
+                    Order price: <b>{countTotalPrice()} €</b>
                 </span>
             </div>
             <div className={styles.buttons}>

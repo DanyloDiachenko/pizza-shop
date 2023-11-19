@@ -7,7 +7,7 @@ import { PizzaThicknessType } from "@/types/pizzaThickness.type";
 import { useDispatch, useSelector } from "react-redux";
 import { storageSlice } from "@/store/storage/storate.slice";
 import { RootState } from "@/store";
-import { IPizzaStorage } from './pizza.interface';
+import { IPizzaStorage } from "./pizza.interface";
 
 export const Pizza = ({
     image,
@@ -131,6 +131,32 @@ export const Pizza = ({
         localStorage.setItem("basket", JSON.stringify(existingItems));
     };
 
+    const onKeyThicknessHandler = (
+        e: React.KeyboardEvent<HTMLDivElement>,
+        thickness: PizzaThicknessType,
+    ) => {
+        if (e.code === "Enter" || e.code === "Space") {
+            setActiveTicknessOptionHandler(thickness);
+        }
+    };
+
+    const onKeySizeHandler = (
+        e: React.KeyboardEvent<HTMLDivElement>,
+        size: PizzaRadiusType,
+    ) => {
+        if (e.code === "Enter" || e.code === "Space") {
+            setActiveSizeOptionHandler(size);
+        }
+    };
+
+    const onKeyAddToBasketHandler = (
+        e: React.KeyboardEvent<HTMLButtonElement>,
+    ) => {
+        if (e.code === "Enter" || e.code === "Space") {
+            addProductToBasket(_id);
+        }
+    };
+
     return (
         <article className={styles.pizza}>
             <img src={image} alt={title + " photo"} />
@@ -147,6 +173,10 @@ export const Pizza = ({
                             onClick={() =>
                                 setActiveTicknessOptionHandler(thikness)
                             }
+                            onKeyDown={(e) =>
+                                onKeyThicknessHandler(e, thikness)
+                            }
+                            tabIndex={0}
                             key={index}
                         >
                             {thikness}
@@ -161,6 +191,8 @@ export const Pizza = ({
                                 activeOptions.size === size ? styles.active : ""
                             }
                             onClick={() => setActiveSizeOptionHandler(size)}
+                            onKeyDown={(e) => onKeySizeHandler(e, size)}
+                            tabIndex={0}
                         >
                             {size} cm.
                         </div>
@@ -174,6 +206,7 @@ export const Pizza = ({
                 <button
                     className={styles.button}
                     onClick={() => addProductToBasket(_id)}
+                    onKeyDown={onKeyAddToBasketHandler}
                 >
                     <svg
                         width="12"

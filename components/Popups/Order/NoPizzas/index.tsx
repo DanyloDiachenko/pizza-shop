@@ -1,6 +1,7 @@
 import styles from "./noPizzas.module.scss";
+import { NoPizzasProps } from "./noPizzas.props";
 
-export const NoPizzas = (): JSX.Element => {
+export const NoPizzas = ({ isActive }: NoPizzasProps): JSX.Element => {
     return (
         <>
             <h2 className={styles.h2}>Cart is empty 😕</h2>
@@ -13,7 +14,7 @@ export const NoPizzas = (): JSX.Element => {
                 <img src="/empty-cart.png" alt="a men with a cart photo" />
             </div>
             <div className={styles.btnWrapper}>
-                <button>Come back</button>
+                <button tabIndex={isActive ? 0 : -1}>Come back</button>
             </div>
         </>
     );

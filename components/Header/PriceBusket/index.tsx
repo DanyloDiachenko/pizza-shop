@@ -50,8 +50,12 @@ export const PriceBusket = (): JSX.Element => {
 
         const pizzas = JSON.parse(pizzasString);
 
+        console.log(localStorage.basket);
+
         if (pizzas) {
             setPizzas(pizzas);
+        } else {
+            setPizzas([]);
         }
     }, [toggleLocalstorage]);
 

@@ -7,6 +7,11 @@
     display: flex;
     padding: 15px;
     gap: 10px;
+    transition: var(--transition);
+
+    &:hover {
+        border: 1px solid var(--gray-text);
+    }
 
     input {
         width: 100%;

@@ -10,33 +10,39 @@ export const Pagination = ({
 
     return (
         <div className={styles.pagination}>
-            <div
+            <button
                 onClick={() =>
                     setActivePage(
                         activePage !== 1 ? ((activePage - 1) as PageType) : 1,
                     )
                 }
+                className={activePage === 1 ? styles.inactive : ""}
+                disabled={activePage === 1}
+                aria-label="Previous page"
             >
                 {"<"}
-            </div>
+            </button>
             {pages.map((page) => (
-                <div
+                <button
                     className={page === activePage ? styles.active : ""}
                     key={page}
                     onClick={() => setActivePage(page)}
                 >
                     {page}
-                </div>
+                </button>
             ))}
-            <div
+            <button
                 onClick={() =>
                     setActivePage(
                         activePage !== 3 ? ((activePage + 1) as PageType) : 3,
                     )
                 }
+                className={activePage === 3 ? styles.inactive : ""}
+                disabled={activePage === 3}
+                aria-label="Next page"
             >
                 {">"}
-            </div>
+            </button>
         </div>
     );
 };
