@@ -1,6 +1,8 @@
 "use client";
+
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import styles from "./main.module.scss";
 import { Pizza } from "./Pizza";
@@ -10,10 +12,10 @@ import { PageType } from "@/types/page.type";
 import { getAllPizzas } from "@/api/pizzas/getAllPizzas";
 import { IPizza } from "./Pizza/pizza.interface";
 import { TagType } from "@/types/tag.type";
-import { SortByType } from "@/types/sortBy.type";
 import { ISortVariant } from "./Filters/SortBy/sortVariant.interface";
 import { tags } from "@/data/tags";
 import { sortVariants } from "@/data/sortVariants";
+import { RootState } from "@/store";
 
 export const Main = (): JSX.Element => {
     const searchParams = useSearchParams();
@@ -22,6 +24,9 @@ export const Main = (): JSX.Element => {
     const tagParam: string | null = searchParams.get("tag");
     const pageNumberParam: string | null = searchParams.get("page");
     const sortByParam: string | null = searchParams.get("sortBy");
+    const searchPizza: string = useSelector((state: RootState) => {
+        return state.searchPizza.searchPizza;
+    });
 
     const [activeTag, setActiveTag] = useState<TagType>(
         tagParam
@@ -32,7 +37,7 @@ export const Main = (): JSX.Element => {
               ) as TagType)
             : "All",
     );
-    const [pizzas, setPizzas] = useState<IPizza[]>([]);
+    const [pizzas, setPizzas] = useState<IPizza[] | null>([]);
     const [activePage, setActivePage] = useState<PageType>(
         pageNumberParam ? (Number(pageNumberParam) as PageType) : 1,
     );
@@ -43,22 +48,7 @@ export const Main = (): JSX.Element => {
               ) as ISortVariant)
             : sortVariants[0],
     );
-
-    useEffect(() => {
-        try {
-            getAllPizzas(
-                tagParam ? (tagParam as TagType) : "All",
-                activePage ? activePage : 1,
-                sortByParam ? (sortByParam as SortByType) : "rating",
-            ).then((data) => {
-                if (data.success) {
-                    setPizzas(data.data);
-                }
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         router.push(
@@ -67,19 +57,49 @@ export const Main = (): JSX.Element => {
             }`,
         );
 
+        setIsLoading(true);
+
         try {
-            getAllPizzas(activeTag, activePage, activeSortVariant.value).then(
-                (data) => {
-                    console.log(data);
-                    if (data.success) {
+            getAllPizzas(
+                activeTag,
+                activePage,
+                activeSortVariant.value,
+                searchPizza,
+            ).then((data) => {
+                console.log(data);
+                if (data.success) {
+                    setIsLoading(false);
+
+                    if (data.data.length === 0) {
+                        setPizzas(null);
+                    } else {
                         setPizzas(data.data);
                     }
-                },
-            );
+                }
+            });
         } catch (error) {
             console.log(error);
+
+            setIsLoading(false);
+            setPizzas(null);
         }
-    }, [activePage, activeTag, activeSortVariant]);
+    }, [activePage, activeTag, activeSortVariant, searchPizza]);
+
+    const returnContent = () => {
+        if (isLoading) {
+            return <h3 className={styles.pizzas}>Loading...</h3>;
+        }
+        if (pizzas === null) {
+            return <h3 className={styles.pizzas}>Nothing found...</h3>;
+        }
+        return (
+            <div className={styles.pizzas}>
+                {pizzas.map((pizza) => (
+                    <Pizza {...pizza} key={pizza._id} />
+                ))}
+            </div>
+        );
+    };
 
     return (
         <>
@@ -93,11 +113,7 @@ export const Main = (): JSX.Element => {
             />
             <section className={`container ${styles.main}`}>
                 <h2>All pizzas</h2>
-                <div className={styles.pizzas}>
-                    {pizzas.map((pizza) => (
-                        <Pizza {...pizza} key={pizza._id} />
-                    ))}
-                </div>
+                {returnContent()}
                 <Pagination
                     activePage={activePage}
                     setActivePage={setActivePage}

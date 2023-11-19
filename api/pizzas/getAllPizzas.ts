@@ -6,10 +6,11 @@ export const getAllPizzas = async (
     tag: TagType,
     page: PageType,
     sortBy: SortByType,
+    search = "",
 ) => {
     return fetch(
         process.env.NEXT_PUBLIC_BACKEND_URL +
-            `/pizzas?tag=${tag.toLocaleLowerCase()}&pageNumber=${page}&sortBy=${sortBy}`,
+            `/pizzas?tag=${tag.toLocaleLowerCase()}&page=${page}&sortBy=${sortBy}&search=${search}`,
         {
             method: "GET",
             headers: {
