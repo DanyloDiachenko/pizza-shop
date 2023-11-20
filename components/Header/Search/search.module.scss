@@ -9,6 +9,14 @@
     gap: 10px;
     transition: var(--transition);
 
+    @media(max-width: 1040px) {
+        margin-top: 20px;
+        grid-column-start: 1;
+        grid-column-end: -1;
+        max-width: none;
+        margin-left: 0;
+    }
+
     &:hover {
         border: 1px solid var(--gray-text);
     }

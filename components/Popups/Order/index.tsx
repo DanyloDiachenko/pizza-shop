@@ -111,7 +111,10 @@ export const PopupOrder = (): JSX.Element => {
                     {pizzas.length ? (
                         <Pizzas pizzas={pizzas} />
                     ) : (
-                        <NoPizzas isActive={isOpen} />
+                        <NoPizzas
+                            isActive={isOpen}
+                            onComeBackButtonClick={setIsPopupOrdersClosed}
+                        />
                     )}
                 </div>
             </div>

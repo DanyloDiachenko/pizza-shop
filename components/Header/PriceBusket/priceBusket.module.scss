@@ -14,6 +14,13 @@
         cursor: pointer;
     }
 
+    @media(max-width: 1040px) {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
     .left {
         padding-right: 9px;
         border-right: 2px solid var(--white);

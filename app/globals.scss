@@ -32,12 +32,25 @@ html {
 
 body {
     max-width: 1420px;
-    margin: 20px auto;
+    margin: 10px auto;
     background: var(--white);
     padding-top: 35px;
     padding-bottom: 35px;
     border-radius: 12px;
-    min-height: 96vh;
+    min-height: 100%;
+
+    @media(max-width: 1440px) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    @media(max-width: 991px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    @media(max-width: 600px) {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 p {
@@ -74,4 +87,8 @@ h3 {
     border-width: 1px;
     border-top: none;
     border-color: var(--gray-light);
+
+    @media(max-width: 1040px) {
+        margin-top: 20px;
+    }
 }

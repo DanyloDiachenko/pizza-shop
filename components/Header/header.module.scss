@@ -1,10 +1,14 @@
 .header {
     display: flex;
-    
+
+    @media(max-width: 1040px) {
+        display: grid;
+        grid-template-columns: 350px auto;
+    }
+
     .logoText {
         display: flex;
         gap: 18px;
-        
 
         p {
             margin-top: 5px;
