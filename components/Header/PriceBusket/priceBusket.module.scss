@@ -14,19 +14,30 @@
         cursor: pointer;
     }
 
-    @media(max-width: 1040px) {
+    @media (max-width: 1040px) {
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 2;
         grid-column-end: 3;
+    }
+    @media (max-width: 600px) {
+        padding: 5px 10px;
     }
 
     .left {
         padding-right: 9px;
         border-right: 2px solid var(--white);
 
+        @media (max-width: 600px) {
+            padding-right: 5px;
+        }
+
         .price {
             margin-right: 5px;
+
+            @media (max-width: 600px) {
+                margin-right: 3px;
+            }
         }
     }
 
@@ -35,5 +46,10 @@
         align-items: center;
         margin-left: 9px;
         gap: 5px;
+
+        @media (max-width: 600px) {
+            margin-left: 5px;
+            gap: 3px;
+        }
     }
 }

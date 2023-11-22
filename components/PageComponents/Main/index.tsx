@@ -113,7 +113,7 @@ export const Main = (): JSX.Element => {
             />
             <section className={`container ${styles.main}`}>
                 <h2>All pizzas</h2>
-                {returnContent()}
+                {/* {returnContent()} */}
                 <Pagination
                     activePage={activePage}
                     setActivePage={setActivePage}

@@ -1,18 +1,45 @@
 .header {
     display: flex;
 
-    @media(max-width: 1040px) {
+    @media (max-width: 1040px) {
         display: grid;
         grid-template-columns: 350px auto;
+    }
+    @media (max-width: 991px) {
+        grid-template-columns: 350px auto;
+    }
+    @media(max-width: 500px) {
+        grid-template-columns: 270px auto;
+    }
+    @media(max-width: 500px) {
+        grid-template-columns: 168px auto;
     }
 
     .logoText {
         display: flex;
         gap: 18px;
 
+        @media (max-width: 600px) {
+            gap: 10px;
+        }
+        @media(max-width: 430px) {
+            align-items: center;
+        }
+
+        img {
+            @media (max-width: 600px) {
+                width: 60px;
+                height: auto;
+            }
+        }
+
         p {
             margin-top: 5px;
             color: var(--gray-text);
+
+            @media (max-width: 430px) {
+                display: none;
+            }
         }
     }
 }
