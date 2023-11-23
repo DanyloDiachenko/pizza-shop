@@ -1,11 +1,31 @@
 .main {
     margin-top: 70px;
 
+    @media (max-width: 991px) {
+        margin-top: 40px;
+    }
+
     .pizzas {
         margin-top: 30px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 50px;
-        min-height: 455px;
+        min-height: 475px;
+
+        @media (max-width: 1300px) {
+            overflow-x: auto;
+        }
+
+        /* @media (max-width: 991px) {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        } */
+
+        @media (max-width: 600px) {
+            margin-top: 20px;
+            grid-template-columns: repeat(4, 230px);
+            min-height: 400px;
+        }
     }
 }

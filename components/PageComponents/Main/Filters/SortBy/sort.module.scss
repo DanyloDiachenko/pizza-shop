@@ -4,7 +4,7 @@
     position: relative;
 
     @media (max-width: 820px) {
-        margin-top: 20px;
+        margin-top: 5px;
     }
 
     img {
@@ -36,6 +36,7 @@
         background: var(--white);
         box-shadow: 3px 3px 10px 0px #00000040;
         list-style: none;
+        z-index: 1;
 
         @media (max-width: 820px) {
             left: 0;

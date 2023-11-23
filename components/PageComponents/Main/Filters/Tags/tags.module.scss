@@ -3,11 +3,12 @@
     gap: 15px;
 
     @media (max-width: 820px) {
-        overflow: auto;
-        
-        &::-webkit-scrollbar {
+        overflow-x: auto;
+        padding-bottom: 15px;
+
+       /*  &::-webkit-scrollbar {
             display: none;
-        }
+        } */
     }
 
     button {

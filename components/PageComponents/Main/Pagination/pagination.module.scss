@@ -3,6 +3,10 @@
     display: flex;
     gap: 11px;
 
+    @media (max-width: 600px) {
+        margin-top: 5px;
+    }
+
     button {
         width: 40px;
         height: 40px;
@@ -32,8 +36,8 @@
             cursor: default;
 
             &:hover {
-               background: none;
-               color: var(--orange); 
+                background: none;
+                color: var(--orange);
             }
         }
     }
