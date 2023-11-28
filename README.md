@@ -2,7 +2,7 @@ stage: production ready
 
 Page-link: https://pizza-shop-teal.vercel.app/
 
-# Starbucks Coffee Shop Online
+# Pizza Shop Online
 ### Stack:
 -  Next JS  (ver. 13.4.19)
 - TypeScript (ver. 5.2.2)
