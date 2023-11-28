@@ -4,7 +4,9 @@ const nextConfig = {
     experimental: {
         serverActions: true,
     },
-    images: ["dodopizza.azureedge.net"],
+    images: {
+        domains: ["dodopizza.azureedge.net"],
+    },
     async headers() {
         return [
             {
