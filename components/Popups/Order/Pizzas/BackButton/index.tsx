@@ -12,7 +12,11 @@ export const BackButton = (): JSX.Element => {
     };
 
     return (
-        <button className={styles.back} onClick={setIsPopupOrdersClosed}>
+        <button
+            className={styles.back}
+            onClick={setIsPopupOrdersClosed}
+            aria-label="Come back"
+        >
             <svg
                 strokeWidth={2}
                 xmlns="http://www.w3.org/2000/svg"

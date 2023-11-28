@@ -27,6 +27,7 @@ export const Pagination = ({
                     className={page === activePage ? styles.active : ""}
                     key={page}
                     onClick={() => setActivePage(page)}
+                    aria-label={`Go to ${page} page`}
                 >
                     {page}
                 </button>

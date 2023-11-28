@@ -214,6 +214,7 @@ export const Pizza = ({
                     className={styles.button}
                     onClick={() => addProductToBasket(_id)}
                     onKeyDown={onKeyAddToBasketHandler}
+                    aria-label='Add to basket'
                 >
                     <svg
                         width="12"

@@ -117,6 +117,7 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                                         "decrement",
                                     )
                                 }
+                                aria-label="Increment pizza quantity"
                             >
                                 <svg
                                     width="10"
@@ -145,6 +146,7 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                                     )
                                 }
                                 disabled={pizza.count === 10}
+                                aria-label="Decrement pizza quantity"
                             >
                                 <svg
                                     width="10"
@@ -168,7 +170,10 @@ export const Pizzas = ({ pizzas }: PizzasProps): JSX.Element => {
                             {countPricePerPizza(pizza)} €
                         </div>
                         <div className={styles.remove}>
-                            <button onClick={() => removePizza(pizza)}>
+                            <button
+                                onClick={() => removePizza(pizza)}
+                                aria-label="Remove pizza from orders list"
+                            >
                                 <svg
                                     width="10"
                                     height="10"
