@@ -17,7 +17,6 @@ export const PriceBusket = (): JSX.Element => {
         dispatch(popupOrdersSlice.actions.setPopupOpened());
     };
 
-
     const toggleLocalstorage = useSelector(
         (state: RootState) => state.localStorage.toggle,
     );
@@ -63,7 +62,9 @@ export const PriceBusket = (): JSX.Element => {
             className={styles.wrapper}
             tabIndex={0}
             onClick={setPopupOrdersOpened}
-            aria-label='Price and pizzas quantity. Open modal to check orders list'
+            aria-label="Open cart. Total price: €{countTotalPrice()}. Total pizzas: {countPizzasQuantity()}"
+            role="button"
+            name="button"
         >
             <span className={styles.left}>
                 <span className={styles.price}>{countTotalPrice()}</span>
