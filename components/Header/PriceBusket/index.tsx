@@ -17,6 +17,7 @@ export const PriceBusket = (): JSX.Element => {
         dispatch(popupOrdersSlice.actions.setPopupOpened());
     };
 
+
     const toggleLocalstorage = useSelector(
         (state: RootState) => state.localStorage.toggle,
     );
@@ -49,8 +50,6 @@ export const PriceBusket = (): JSX.Element => {
         }
 
         const pizzas = JSON.parse(pizzasString);
-
-        console.log(localStorage.basket);
 
         if (pizzas) {
             setPizzas(pizzas);

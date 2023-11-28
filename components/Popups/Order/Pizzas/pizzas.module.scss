@@ -2,6 +2,10 @@
     height: 550px;
     overflow-y: auto;
 
+    @media (max-width: 991px) {
+        height: 420px;
+    }
+
     .pizza {
         display: flex;
         align-items: center;
@@ -9,22 +13,46 @@
         padding-top: 30px;
         border-top: 1px solid var(--gray-light);
 
+        @media (max-width: 991px) {
+            width: 700px;
+            overflow-x: scroll;
+        }
+        @media (max-width: 600px) {
+            width: 600px;
+        }
+
         .pizzaImg {
             width: 10%;
             margin-right: 15px;
+
+            @media (max-width: 991px) {
+                width: 70px;
+            }
         }
 
         .titleDescription {
             width: 40%;
 
+            @media (max-width: 991px) {
+                width: 320px;
+            }
+
             h3 {
                 font-weight: 600;
+
+                @media (max-width: 600px) {
+                    font-size: 20px;
+                }
             }
 
             p {
                 font-size: 20px;
                 margin-top: 5px;
                 color: var(--gray-text);
+
+                @media (max-width: 600px) {
+                    font-size: 18px;
+                }
             }
         }
 
@@ -33,6 +61,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            @media (max-width: 991px) {
+                width: 110px;
+            }
+            @media (max-width: 600px) {
+                width: 130px;
+            }
 
             b {
                 font-size: 22px;
@@ -89,12 +124,20 @@
             font-size: 22px;
             font-weight: 600;
             letter-spacing: 1.3px;
+
+            @media (max-width: 991px) {
+                width: 200px;
+            }
         }
 
         .remove {
             width: 4%;
             display: flex;
             justify-content: flex-end;
+
+            @media (max-width: 991px) {
+                width: 30px;
+            }
 
             button {
                 width: 30px;
@@ -142,10 +185,27 @@
     font-size: 22px;
     letter-spacing: 0.5px;
 
+    @media (max-width: 600px) {
+        margin-top: 30px;
+        font-size: 18px;
+    }
+    @media (max-width: 420px) {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    @media (max-width: 380px) {
+        font-size: 14px;
+        letter-spacing: 0.2px;
+    }
+
     .pizzasCount,
     .total {
         b {
             font-weight: 600;
+
+            @media (max-width: 380px) {
+                font-weight: 600;
+            }
         }
     }
 
@@ -159,7 +219,11 @@
 .buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 20px;
+
+    @media (max-width: 420px) {
+        margin-top: 10px;
+    }
 
     .pay {
         background: none;
@@ -177,6 +241,17 @@
 
         &:hover {
             background: var(--orange-dark);
+        }
+    }
+
+    button {
+        @media (max-width: 600px) {
+            font-size: 14px;
+            padding: 10px 20px !important;
+        }
+        @media (max-width: 600px) {
+            font-size: 14px;
+            padding: 10px 15px !important;
         }
     }
 }

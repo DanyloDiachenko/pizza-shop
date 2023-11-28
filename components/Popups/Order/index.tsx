@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { NoPizzas } from "./NoPizzas";
@@ -7,7 +8,6 @@ import { Pizzas } from "./Pizzas";
 import styles from "./popupOrder.module.scss";
 import { RootState } from "@/store";
 import { popupOrdersSlice } from "@/store/popupOrders/orders.slice";
-import { useEffect, useState } from "react";
 import { IPizzaStorage } from "@/components/PageComponents/Main/Pizza/pizza.interface";
 import { storageSlice } from "@/store/storage/storate.slice";
 

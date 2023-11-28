@@ -4,7 +4,7 @@ import { Main } from "@/components/PageComponents/Main";
 const Home = (): JSX.Element => {
     return (
         <main>
-            {/* <PopupOrder /> */}
+            <PopupOrder />
             <Main />
         </main>
     );

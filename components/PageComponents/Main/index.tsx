@@ -66,7 +66,6 @@ export const Main = (): JSX.Element => {
                 activeSortVariant.value,
                 searchPizza,
             ).then((data) => {
-                console.log(data);
                 if (data.success) {
                     setIsLoading(false);
 

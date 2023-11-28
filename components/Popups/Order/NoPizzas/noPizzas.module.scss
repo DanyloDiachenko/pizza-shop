@@ -3,6 +3,11 @@
     letter-spacing: 1px;
     font-weight: 600;
     margin-top: 100px;
+
+    @media (max-width: 600px) {
+        margin-top: 50px;
+        font-size: 26px;
+    }
 }
 
 .p {
@@ -12,36 +17,42 @@
     color: var(--gray-text);
     text-align: center;
     line-height: 32px;
-}
 
-.imgWrapper {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-
-    img {
-        max-width: 300px;
+    @media (max-width: 600px) {
+        font-size: 20px;
+        line-height: 28px;
     }
 }
 
-.btnWrapper {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+.image {
+    margin: 30px auto 0 auto;
+    display: block;
+    max-width: 300px;
+    height: auto;
 
-    button {
-        background: var(--black-main);
-        color: var(--white);
-        border: none;
-        padding: 15px 50px;
-        font-size: 20px;
-        transition: var(--transition);
-        border-radius: 33px;
-        cursor: pointer;
-        letter-spacing: 1px;
+    @media (max-width: 600px) {
+        max-width: 250px;
+    }
+}
 
-        &:hover {
-            background: var(--black);
-        }
+.button {
+    display: block;
+    margin: 50px auto 0 auto;
+    background: var(--black-main);
+    color: var(--white);
+    border: none;
+    padding: 15px 50px;
+    font-size: 20px;
+    transition: var(--transition);
+    border-radius: 33px;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    &:hover {
+        background: var(--black);
+    }
+
+    @media (max-width: 600px) {
+        margin-top: 30px;
     }
 }

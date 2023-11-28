@@ -37,6 +37,21 @@
         opacity: 1;
     }
 
+    @media (max-width: 1440px) {
+        width: 80vw;
+        padding: 30px 50px;
+    }
+    @media (max-width: 1024px) {
+        width: 95vw;
+        padding: 30px;
+    }
+    @media (max-width: 600px) {
+        padding: 20px;
+    }
+    @media (max-width: 380px) {
+        padding: 10px;
+    }
+
     .popupOrders {
         .top {
             display: flex;
