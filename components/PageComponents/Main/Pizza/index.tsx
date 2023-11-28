@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 
 import styles from "./pizza.module.scss";
@@ -159,7 +161,12 @@ export const Pizza = ({
 
     return (
         <article className={styles.pizza}>
-            <img src={image} alt={title + " photo"} />
+            <img
+                src={image}
+                alt={title + " photo"}
+                width={260}
+                height={260}
+            />
             <h3>{title}</h3>
             <div className={styles.options}>
                 <div className={styles.top}>
