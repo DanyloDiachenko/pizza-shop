@@ -20,5 +20,4 @@ Page-link: https://pizza-shop-teal.vercel.app/
 NEXT_PUBLIC_BACKEND_URL=https://pizza-shop-api-jade.vercel.app/api
 
 ### Screen:
-https://imgur.com/QjnfBgI
 [![Screen of main page photo](https://i.imgur.com/QjnfBgI.png)]([https://i.imgur.com/QjnfBgI.png](https://imgur.com/QjnfBgI))
